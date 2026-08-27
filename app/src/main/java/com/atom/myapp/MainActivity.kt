@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -37,17 +38,17 @@ class MainActivity : ComponentActivity() {
 }
 @Composable
 fun Formulario(){
-    Column(
+    Row(
         modifier= Modifier
             .fillMaxWidth()
             .padding(96.dp),
-         verticalArrangement =
+         horizontalArrangement  =
              Arrangement.spacedBy(12.dp),
-        horizontalAlignment=
-            Alignment.CenterHorizontally
+        verticalAlignment =
+            Alignment.CenterVertically
     ){
-        Text("Titulo",fontSize=56.sp)
-        Text("Subtitulo",fontSize=34.sp)
+        Text("Titulo",fontSize=16.sp)
+        Text("Subtitulo",fontSize=14.sp)
         Button(onClick = {}) {
             Text("Ingresar", fontWeight = FontWeight.Bold)
         }
