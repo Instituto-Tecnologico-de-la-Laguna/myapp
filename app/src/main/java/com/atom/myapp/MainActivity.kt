@@ -11,9 +11,14 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -36,7 +41,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             MyAppTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Formulario()
+                    Forma()
                 }
             }
         }
@@ -44,27 +49,34 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Formulario(){
-    LazyColumn(
-        contentPadding = PaddingValues(12.dp)
-    ){
+fun Forma(){
+    Column(
+        modifier=Modifier
+            .fillMaxSize()
+            .wrapContentSize(Alignment.Center),
+        horizontalAlignment=
+            Alignment.CenterHorizontally
 
+    ){
+        Text("Bienvenido",
+            color=Color.Red,
+            fontWeight = FontWeight.Bold,
+            fontSize = 40.sp,
+            textAlign= TextAlign.Center,
+            modifier=Modifier
+                .background(Color.Black)
+                .padding(horizontal = 20.dp)
+                .fillMaxWidth()
+
+        )
+        Spacer(modifier=Modifier.height(10.dp))
+        Text("Jetpack")
+        Spacer(modifier=Modifier.height(10.dp))
+        Text("Compose")
+        LazyRow(  contentPadding = PaddingValues(8.dp)){
+            items(){
+
+            }
+        }
     }
-}
-@Composable
-fun Espacio(espacio: Int){
-    Spacer(modifier=Modifier.padding(espacio.dp))
-}
-@Composable
-fun Texto(texto:String,color:Color){
-    Text(
-        text=texto,
-        fontSize = 40.sp,
-        fontWeight = FontWeight.Bold,
-        color= color,
-        textAlign = TextAlign.Center,
-        modifier= Modifier
-            .background(Color.Black)
-            .fillMaxWidth()
-    )
 }
