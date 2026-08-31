@@ -19,6 +19,7 @@ import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.OutlinedTextFieldDefaults.contentPadding
@@ -55,18 +56,18 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun Formulario(){
     val listaBotones=listOf(
-        Estructura("Rojo",Color.Red),
-        Estructura("Verde",Color.Green),
-        Estructura("Amarillo",Color.Yellow),
-        Estructura("Azul",Color.Blue),
-        Estructura("Cyan",Color.Cyan),
-        Estructura("Dark Grey",Color.DarkGray),
-        Estructura("Rojo",Color.Red),
-        Estructura("Verde",Color.Green),
-        Estructura("Amarillo",Color.Yellow),
-        Estructura("Azul",Color.Blue),
-        Estructura("Cyan",Color.Cyan),
-        Estructura("Dark Grey",Color.DarkGray)
+        Estructura("R",Color.Red),
+        Estructura("V",Color.Green),
+        Estructura("A",Color.Yellow),
+        Estructura("A",Color.Blue),
+        Estructura("C",Color.Cyan),
+        Estructura("D",Color.DarkGray),
+        Estructura("R",Color.Red),
+        Estructura("V",Color.Green),
+        Estructura("A",Color.Yellow),
+        Estructura("A",Color.Blue),
+        Estructura("C",Color.Cyan),
+        Estructura("D",Color.DarkGray)
 
     )
     Column(
@@ -104,9 +105,14 @@ fun Formulario(){
 fun Botones(estructura:Estructura){
     Button(
         onClick = {},
+        shape= CircleShape,
         modifier = Modifier
-            .background(estructura.color)
+            .size(80.dp)
+            .padding(5.dp)
+        ,
+        colors= ButtonDefaults.buttonColors(estructura.color)
     ){
         Text(text=estructura.nombre)
     }
+
 }
