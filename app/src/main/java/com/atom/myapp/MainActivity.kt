@@ -31,6 +31,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material3.Button
+import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.sp
 
@@ -73,7 +74,9 @@ fun Screen() {
                 painter = painterResource(id = R.drawable.archivo),
                 contentDescription = "",
                 tint = Color.Unspecified,
-                modifier = Modifier.size(40.dp)
+                modifier = Modifier
+                    .size(40.dp)
+                    //.rotate(90f)
             )
             Spacer(modifier=Modifier.size(5.dp))
             Text("Descarga", fontSize = 30.sp)
