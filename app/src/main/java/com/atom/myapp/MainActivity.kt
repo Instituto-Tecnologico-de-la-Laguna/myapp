@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.indication
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -26,7 +27,9 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import coil3.compose.AsyncImage
 import com.atom.myapp.ui.theme.MyAppTheme
+import org.jetbrains.annotations.Async
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,11 +59,13 @@ fun Pantalla(){
                 contentScale = ContentScale.Fit,
                 modifier= Modifier.size(300.dp)
             )
-            Spacer(modifier=Modifier.width(20.dp))
-            Image(
-                imageVector= ImageVector.vectorResource(R.drawable.new_england_patriots_logo),
-                contentDescription = "The Best",
-                contentScale= ContentScale.Fit
+
+            Spacer(modifier= Modifier.width(20.dp))
+            AsyncImage(
+                model="https://i.pinimg.com/736x/f8/01/71/f801716d5be112d2a9b48da3eb663c01.jpg",
+                contentDescription = "Imagen Tomada de Internet",
+                modifier = Modifier.size(150.dp),
+                contentScale = ContentScale.Crop
             )
     }
 }
