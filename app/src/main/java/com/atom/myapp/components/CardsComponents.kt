@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
@@ -20,7 +21,17 @@ fun TwoCards(title1:String,number1:Double,title2:String,number2:Double){
     Row(modifier = Modifier
         .fillMaxWidth(),
         horizontalArrangement = Arrangement.SpaceEvenly){
-        //MainCard()
+        MainCard(
+            title1,number1,modifier= Modifier
+                .padding(30.dp)
+                .weight(1F)
+        )
+        SpaceW()
+        MainCard(
+            title2,number2,modifier= Modifier
+                .padding(30.dp)
+                .weight(1F)
+        )
     }
 }
 
