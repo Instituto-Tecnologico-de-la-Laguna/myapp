@@ -11,6 +11,8 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CircularProgressIndicator
@@ -31,13 +33,15 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.ViewModel
+import com.atom.myapp.mvv.ItemViewModel
 import com.atom.myapp.mvv.MainViewModel
 import com.atom.myapp.ui.theme.MyAppTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val viewModel: MainViewModel by viewModels()
+        //val viewModel: MainViewModel by viewModels()
+        val itemList : ItemViewModel by viewModels ()
         enableEdgeToEdge()
         setContent {
             MyAppTheme {
@@ -46,7 +50,7 @@ class MainActivity : ComponentActivity() {
                         .fillMaxSize(),
                     color= MaterialTheme.colorScheme.background
                 ){
-                    ContentView(viewModel)
+                    ItemsView(itemList)
                 }
             }
         }
@@ -86,3 +90,21 @@ fun BotonColor(){
         Text("Cambiar Color")
     }
 }
+
+@Composable
+fun ItemsView(viewModel: ItemViewModel) {
+    val itemList = viewModel.itemList
+    Column() {
+        if (viewModel.cargando) {
+            CircularProgressIndicator()
+        } else {
+            LazyColumn() {
+                items(itemList) { item ->
+                    Text(text = item.name)
+                }
+            }
+        }
+    }
+}
+
+
