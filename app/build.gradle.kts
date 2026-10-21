@@ -51,4 +51,16 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
     debugImplementation(libs.androidx.compose.ui.tooling)
+
+    //--On Boarding
+    implementation("com.google.accompanist:accompanist-pager:0.15.0")
+
+    //--Lottie Files
+    implementation("com.airbnb.android:lottie-compose:5.2.0")
+
+    //--Navigation
+    implementation("androidx.navigation:navigation-compose:2.5.3")
+
+    //--DataStore
+    implementation("androidx.datastore:datastore-preferences:1.0.0")
 }
